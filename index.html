@@ -1,190 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Documents</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Limitless Theme CSS -->
-    <link href="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet">
-    <link href="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/css/icons/icomoon/styles.min.css" rel="stylesheet">
-    <link href="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/css/core.min.css" rel="stylesheet">
-    <link href="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/css/components.min.css" rel="stylesheet">
-    <style>
-        .card {
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        }
-        .card-header {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #eee;
-            padding: 15px 20px;
-        }
-        .form-select {
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-        .btn-primary {
-            background-color: #2196F3;
-            border-color: #2196F3;
-        }
-        .alert {
-            border-left: 4px solid #2196F3;
-        }
-    </style>
+    <title>منيو مطعم الطيب | المشويات والبروست</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-<div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-lg-5">
-            <!-- Tax Forms Card -->
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Tax Forms</h5>
-                    <a href="#" class="text-primary" data-bs-toggle="tooltip" title="Help">
-                        <i class="icon-question4"></i>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label for="taxYearSelect" class="form-label fw-semibold">Select a Tax Year</label>
-                        <select class="form-select w-auto" id="taxYearSelect">
-                            <option selected>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                        </select>
-                    </div>
-                    <div class="alert alert-primary alert-dismissible fade show">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        There are no tax forms available for 2024. Check availability dates <a href="#" class="alert-link">here</a>.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dividend Tax Vouchers Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Dividend Tax Vouchers</h5>
-                </div>
-                <div class="card-body">
-                    <p>Dividend Tax Vouchers can be used as proof of dividend tax withholding at the source. <a href="#" class="text-primary">More Info</a></p>
-                    
-                    <div class="mb-3">
-                        <label for="selectYear" class="form-label fw-semibold">Select Year</label>
-                        <select id="selectYear" class="form-select w-auto">
-                            <option selected>Choose One</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label for="selectCountry" class="form-label fw-semibold">Select Country of Security Issuer</label>
-                        <select id="selectCountry" class="form-select w-auto">
-                            <option selected>Choose One</option>
-                            <option>United States</option>
-                            <option>United Kingdom</option>
-                            <option>Germany</option>
-                            <option>France</option>
-                        </select>
-                    </div>
-                    
-                    <button class="btn btn-primary mb-4">
-                        <i class="icon-file-text2 me-2"></i> Request Dividend Tax Voucher
-                    </button>
-                    
-                    <div class="alert alert-primary alert-dismissible fade show">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <ul class="mb-0">
-                            <li>Tax Vouchers requests for dividend payments for the current year are not offered. Tax Vouchers can be requested at the earliest after mid-February the following year.</li>
-                            <li>Only Tax Voucher requests made via the Client Portal will be processed. Any ticket requests submitted to client services for Tax Vouchers are not accepted.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <!-- Tax Optimizer Card -->
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Tax Optimizer</h5>
-                    <a href="#" class="text-primary" data-bs-toggle="tooltip" title="Help">
-                        <i class="icon-question4"></i>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <div class="alert alert-primary alert-dismissible fade show">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <p class="mb-2">Proactively Manage Gains and Losses with Tax Optimizer</p>
-                        <p class="mb-2">To use Tax Optimizer:</p>
-                        <ul class="mb-0">
-                            <li>Click <a href="#" class="alert-link">Portfolio &gt; Position</a></li>
-                            <li>Click <span class="fw-bold">⋮</span> for a position</li>
-                            <li>Select View Tax Lots</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="matchMethod" class="form-label fw-semibold">Account Match Method</label>
-                        <select class="form-select" id="matchMethod">
-                            <option selected>First In, First Out (FIFO)</option>
-                            <option>Last In, First Out (LIFO)</option>
-                            <option>Highest Cost</option>
-                            <option>Lowest Cost</option>
-                        </select>
-                    </div>
-                    
-                    <button class="btn btn-primary">
-                        <i class="icon-checkmark2 me-2"></i> Save Changes
-                    </button>
-                </div>
-            </div>
-
-            <!-- Cost Basis Card -->
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Cost Basis</h5>
-                    <a href="#" class="text-primary" data-bs-toggle="tooltip" title="Help">
-                        <i class="icon-question4"></i>
-                    </a>
-                </div>
-                <div class="list-group list-group-flush">
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Position Transfer</span>
-                        <a href="#" class="text-primary" data-bs-toggle="tooltip" title="Settings">
-                            <i class="icon-cog"></i>
-                        </a>
-                    </div>
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Forex</span>
-                        <a href="#" class="text-primary" data-bs-toggle="tooltip" title="Settings">
-                            <i class="icon-cog"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- شاشة التحميل -->
+    <div class="loader">
+        <div class="spinner"></div>
+        <h2 class="welcome-message">مطعم الطيب يرحب بكم</h2>
     </div>
-</div>
 
-<!-- Bootstrap JS Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Limitless Theme JS -->
-<script src="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/js/core/libraries/jquery.min.js"></script>
-<script src="https://themes.kopyov.com/limitless/demo/template/html/layout_1/full/assets/js/core/libraries/bootstrap.min.js"></script>
-<script>
-    // Enable tooltips
-    document.addEventListener('DOMContentLoaded', function() {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-    });
-</script>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo-text">
+                <span class="restaurant-word">مطعم</span>
+                <span class="restaurant-name">الطيب</span>
+                <span class="chick-icon">🐥</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- معلومات المطعم -->
+    <section class="info-bar">
+        <div class="container">
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>مواعيد العمل: 10 صباحًا - 3 صباحًا</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>فرع دله /شارع جمال عبد الناصر برج عزوز فرع الدائري</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- عرض اليوم -->
+    <section class="today-offer" id="today-offer">
+        <div class="offer-content">
+            <span class="offer-tag">عرض اليوم</span>
+            <h2 id="offer-title">جاري تحميل العرض...</h2>
+            <p class="offer-price" id="offer-price"></p>
+        </div>
+    </section>
+
+    <!-- أقسام المنيو -->
+    <nav class="categories-nav">
+        <div class="swiper categories-slider">
+          <div class="swiper-wrapper" id="categories-container">
+            <!-- سيتم ملؤها ديناميكياً -->
+          </div>
+        </div>
+      </nav>
+      
+      <main class="menu">
+        <section id="menu-container" class="menu-section">
+          <!-- سيتم ملؤها ديناميكياً -->
+        </section>
+      </main>
+
+    <!-- آراء العملاء -->
+    <section class="reviews">
+        <h2 class="section-title">آراء العملاء <i class="fas fa-comment-dots"></i></h2>
+        <div class="swiper reviews-slider">
+            <div class="swiper-wrapper" id="reviews-container">
+                <!-- سيتم ملؤها ديناميكيًا -->
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <button class="contact-btn">
+            <i class="fab fa-whatsapp"></i> للشكاوى والاستفسارات: 0123456789
+        </button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
